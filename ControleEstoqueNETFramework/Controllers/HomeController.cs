@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ControleEstoqueNETFramework.DAO;
+using ControleEstoqueNETFramework.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +12,19 @@ namespace ControleEstoqueNETFramework.Controllers
     {
         public ActionResult Index()
         {
+            //var dao = new UsuarioDAO();
+
+            //var entidade = new Usuario
+            //{
+            //    Nome = "Paulo Henrique Sales Sampaio"
+            //    ,
+            //    Senha = "123456"
+            //};
+
+            //dao.Insert(entidade);
+
+            //var usuarios = dao.Select();
+
             return View();
         }
 
