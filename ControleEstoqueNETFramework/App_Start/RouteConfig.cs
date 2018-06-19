@@ -13,6 +13,9 @@ namespace ControleEstoqueNETFramework
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //HABILITANDO O USO DAS ANOTAÇÕES DE ROTAS NA CONTROLLER
+            routes.MapMvcAttributeRoutes();
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

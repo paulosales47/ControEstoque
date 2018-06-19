@@ -11,6 +11,7 @@ namespace ControleEstoqueNETFramework.Controllers
     public class ProdutoController : Controller
     {
         // GET: Produto
+        [Route("produtos", Name="ListaProdutos")]
         public ActionResult Index()
         {
             var dao = new ProdutoDAO();
@@ -45,6 +46,7 @@ namespace ControleEstoqueNETFramework.Controllers
             }
         }
 
+        [Route("produtos/{id}", Name="VisualizaProduto")]
         public ActionResult Visualiza(int id)
         {
             var dao = new ProdutoDAO();

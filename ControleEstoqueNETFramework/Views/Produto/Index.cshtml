@@ -1,41 +1,26 @@
 ﻿@model IList<ControleEstoqueNETFramework.Models.Produto>
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Lista de produtos</title>
-</head>
-<body>
-    <div> 
-
-        <table class="table table-bordered">
-            <caption>Lista de produtos</caption>
-            <thead>
-                <tr>
-                    <th>ID</th>        
-                    <th>NOME</th>
-                    <th>PREÇO</th>
-                    <th>CATEGORIA</th>
-                    <th>DESCRIÇÃO</th>
-                    <th>QUANTIDADE</th>
-                </tr>
-            <tbody>
-                @foreach (var produto in Model)
-                {
-                    <tr>
-                        <td>@produto.Id</td>
-                        <td>@Html.ActionLink(produto.Descricao, "Visualiza", new { produto.Id })</td>
-                        <td>@produto.Preco</td>
-                        <td>@produto.Categoria.Descricao</td>
-                        <td>@produto.Descricao</td>
-                        <td>@produto.Quantidade</td>
-                    </tr>
-                }
-        </table>
-
-
-    </div>
-</body>
-</html>
+<table class="table table-hover">
+    <caption>Lista de produtos</caption>
+    <thead>
+        <tr>
+            <th>ID</th>        
+            <th>NOME</th>
+            <th>PREÇO</th>
+            <th>CATEGORIA</th>
+            <th>DESCRIÇÃO</th>
+            <th>QUANTIDADE</th>
+        </tr>
+    <tbody>
+        @foreach (var produto in Model)
+        {
+            <tr>
+                <td>@produto.Id</td>
+                <td>@Html.RouteLink(produto.Descricao, "VisualizaProduto", new { produto.Id })</td>
+                <td>@produto.Preco</td>
+                <td>@produto.Categoria.Descricao</td>
+                <td>@produto.Descricao</td>
+                <td>@produto.Quantidade</td>
+            </tr>
+        }
+</table>

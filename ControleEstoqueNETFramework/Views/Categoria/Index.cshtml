@@ -1,35 +1,20 @@
 ﻿@model IList<ControleEstoqueNETFramework.Models.CategoriaProduto>
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Lista de categorias</title>
-</head>
-<body>
-    <div>
-
-        <table class="table table-bordered">
-            <caption>Lista de categorias</caption>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>NOME</th>
-                    <th>DESCRIÇÃO</th>
-                </tr>
-            <tbody>
-                @foreach (var categoria in Model)
-                {
-                    <tr>
-                        <td>@categoria.Id</td>
-                        <td>@categoria.Nome</td>
-                        <td>@categoria.Descricao</td>
-                    </tr>
-                }
-        </table>
-
-
-    </div>
-</body>
-</html>
+<table class="table table-bordered">
+    <caption>Lista de categorias</caption>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NOME</th>
+            <th>DESCRIÇÃO</th>
+        </tr>
+    <tbody>
+        @foreach (var categoria in Model)
+        {
+            <tr>
+                <td>@categoria.Id</td>
+                <td>@categoria.Nome</td>
+                <td>@categoria.Descricao</td>
+            </tr>
+        }
+</table>
