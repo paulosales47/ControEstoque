@@ -326,6 +326,7 @@
     <Content Include="Views\Categoria\Index.cshtml" />
     <Content Include="Views\Produto\Form.cshtml" />
     <Content Include="Views\Produto\Adiciona.cshtml" />
+    <Content Include="Views\Produto\Visualiza.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -26,7 +26,7 @@
                 {
                     <tr>
                         <td>@produto.Id</td>
-                        <td>@produto.Nome</td>
+                        <td>@Html.ActionLink(produto.Descricao, "Visualiza", new { produto.Id })</td>
                         <td>@produto.Preco</td>
                         <td>@produto.Categoria.Descricao</td>
                         <td>@produto.Descricao</td>

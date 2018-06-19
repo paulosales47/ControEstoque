@@ -1,0 +1,29 @@
+﻿@using ControleEstoqueNETFramework.Models
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Visualiza</title>
+</head>
+<body>
+    <div> 
+
+        @{Produto produto = ViewBag.produto; }
+         
+        Id: @produto.Id <br />
+        Nome: @produto.Nome <br />
+        Descrição: @produto.Descricao <br />
+        Preço: @produto.Preco <br />
+        Quantidade: @produto.Quantidade <br />
+        Categoria: @produto.Categoria.Descricao <br />
+
+        @Html.ActionLink("Voltar","Index", "Produto")
+    </div>
+</body>
+</html>

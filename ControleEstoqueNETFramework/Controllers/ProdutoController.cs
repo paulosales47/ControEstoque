@@ -20,23 +20,56 @@ namespace ControleEstoqueNETFramework.Controllers
 
         public ActionResult Form()
         {
-            var dao = new CategoriaProdutoDAO();
-            ViewBag.Categorias = dao.Select();
-
+            ListaCategoria();
+            ViewBag.produto = new Produto();
             return View();
         }
 
         [HttpPost]
         public ActionResult Adiciona(Produto produto)
         {
+            if (ProdutoValido(produto))
+            {
+                var dao = new CategoriaProdutoDAO();
+                CategoriaProduto categoria = dao.SelectId(produto.Categoria.Id);
+                categoria.Produtos.Add(produto);
+                dao.Update(categoria);
 
+                return RedirectToAction("Index", "Produto");
+            }
+            else
+            {
+                ListaCategoria();
+                ViewBag.produto = produto;
+                return View("Form");
+            }
+        }
+
+        public ActionResult Visualiza(int id)
+        {
+            var dao = new ProdutoDAO();
+            ViewBag.produto = dao.SelectId(id);
+            return View();
+        }
+
+
+        private void ListaCategoria()
+        {
             var dao = new CategoriaProdutoDAO();
+            ViewBag.Categorias = dao.Select();
+        }
 
-            CategoriaProduto categoria = dao.SelectId(produto.Categoria.Id);
-            categoria.Produtos.Add(produto);
-            dao.Update(categoria);
+        private bool ProdutoValido(Produto produto)
+        {
+            bool categoriaValida = (produto.Categoria.Id > 0);
+
+            if (!categoriaValida)
+                ModelState.AddModelError("categoria", "Categoria inválida");
             
-            return RedirectToAction("Index");
+            return (
+                       ModelState.IsValid
+                    && categoriaValida
+                   );
         }
     }
 }
