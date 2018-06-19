@@ -224,7 +224,9 @@
     <Compile Include="Configuration\CategoriaProdutoConfiguration.cs" />
     <Compile Include="Configuration\ProdutoConfiguration.cs" />
     <Compile Include="Configuration\UsuarioConfiguration.cs" />
+    <Compile Include="Controllers\CategoriaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="DAO\CategoriaProdutoDAO.cs" />
     <Compile Include="DAO\EstoqueContext.cs" />
     <Compile Include="DAO\ProdutoDAO.cs" />
@@ -320,6 +322,10 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Produto\Index.cshtml" />
+    <Content Include="Views\Categoria\Index.cshtml" />
+    <Content Include="Views\Produto\Form.cshtml" />
+    <Content Include="Views\Produto\Adiciona.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

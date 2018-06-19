@@ -12,18 +12,33 @@ namespace ControleEstoqueNETFramework.Controllers
     {
         public ActionResult Index()
         {
-            //var dao = new UsuarioDAO();
+            //var daoCategoria = new CategoriaProdutoDAO();
 
-            //var entidade = new Usuario
+            //var entidade = new CategoriaProduto
             //{
-            //    Nome = "Paulo Henrique Sales Sampaio"
+            //    Descricao = "Produtos de informática"
             //    ,
-            //    Senha = "123456"
+            //    Nome = "Informática"
             //};
 
-            //dao.Insert(entidade);
+            //daoCategoria.Insert(entidade);
 
-            //var usuarios = dao.Select();
+            //var daoProduto = new ProdutoDAO();
+
+            //var entidadeProduto = new Produto
+            //{
+            //    Nome = "Placa de vídeo"
+            //    ,
+            //    Descricao = "NVIDIA GTX 1080TI"
+            //    ,
+            //    Preco = 3500
+            //    ,
+            //    Quantidade = 3
+            //    ,
+            //    Categoria = entidade
+            //};
+
+            //daoProduto.Insert(entidadeProduto);
 
             return View();
         }

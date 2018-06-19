@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ControleEstoqueNETFramework.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -26,7 +27,7 @@ namespace ControleEstoqueNETFramework.DAO
         {
             return context.CategoriaProdutos
                 .Where(ct => ct.Id == Id)
-                .ToList();
+                .First();
         }
 
         protected override void Update(EstoqueContext context, dynamic obj)
@@ -36,7 +37,7 @@ namespace ControleEstoqueNETFramework.DAO
 
         protected override void VerificaTipoObjeto(dynamic obj)
         {
-            if (!(obj is CategoriaProdutoDAO))
+            if (!(obj is CategoriaProduto))
             {
                 ErroArgumento();
             }

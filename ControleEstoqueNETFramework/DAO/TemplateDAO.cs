@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -21,9 +22,10 @@ namespace ControleEstoqueNETFramework.DAO
 
                         contextTransaction.Commit();
                     }
-                    catch (Exception)
+                    catch (Exception Ex)
                     {
                         contextTransaction.Rollback();
+                        throw Ex;
                     }
                 }
             }
@@ -43,9 +45,10 @@ namespace ControleEstoqueNETFramework.DAO
 
                         contextTransaction.Commit();
                     }
-                    catch (Exception)
+                    catch (Exception Ex)
                     {
                         contextTransaction.Rollback();
+                        throw Ex;
                     }
                 }
             }
@@ -65,9 +68,10 @@ namespace ControleEstoqueNETFramework.DAO
                         context.SaveChanges();
                         contextTransaction.Commit();
                     }
-                    catch (Exception)
+                    catch (Exception Ex)
                     {
                         contextTransaction.Rollback();
+                        throw Ex;
                     }
                 }
             }
@@ -85,7 +89,7 @@ namespace ControleEstoqueNETFramework.DAO
             }
             catch (Exception Ex)
             {
-                return Ex.Message;
+                throw Ex;
             }
         }
 
@@ -102,7 +106,7 @@ namespace ControleEstoqueNETFramework.DAO
             }
             catch (Exception Ex)
             {
-                return Ex.Message;
+                throw Ex;
             }
         }
 

@@ -32,7 +32,7 @@ namespace ControleEstoqueNETFramework.DAO
         {
             return context.Usuarios
                 .Where(usuario => usuario.Id == Id)
-                .ToList();
+                .First();
         }
 
         protected override void VerificaTipoObjeto(dynamic obj)

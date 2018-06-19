@@ -1,4 +1,5 @@
 ﻿using ControleEstoqueNETFramework.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,14 +26,18 @@ namespace ControleEstoqueNETFramework.DAO
 
         protected override dynamic Select(EstoqueContext context)
         {
-            return context.Produtos.ToList();
+            return context.Produtos
+                .Include(produto => produto.Categoria)
+                .ToList();
+                
         }
 
         protected override dynamic SelectId(EstoqueContext context, int Id)
         {
             return context.Produtos
                 .Where(produto => produto.Id == Id)
-                .ToList();
+                .Include(produto => produto.Categoria)
+                .First();
         }
 
         protected override void VerificaTipoObjeto(dynamic obj)
