@@ -4,12 +4,13 @@
     <caption>Lista de produtos</caption>
     <thead>
         <tr>
-            <th>ID</th>        
+            <th>ID</th>
             <th>NOME</th>
             <th>PREÇO</th>
             <th>CATEGORIA</th>
             <th>DESCRIÇÃO</th>
             <th>QUANTIDADE</th>
+            <th>DECREMENTAR</th>
         </tr>
     <tbody>
         @foreach (var produto in Model)
@@ -20,7 +21,21 @@
                 <td>@produto.Preco</td>
                 <td>@produto.Categoria.Descricao</td>
                 <td>@produto.Descricao</td>
-                <td>@produto.Quantidade</td>
+                <td id="quantidade@(produto.Id)">@produto.Quantidade</td>
+                <th><a href="#" onclick="DecrementaQuantidadeProduto(@produto.Id)">Decrementar</a></th>
             </tr>
         }
 </table>
+
+<script>
+    function DecrementaQuantidadeProduto(idProduto)
+    {
+        $.post("@Url.Action("DecrementaProduto", "Produto")", {id: idProduto}, AtualizaTabela);
+    }
+
+    function AtualizaTabela(resposta)
+    {
+        $("#quantidade" + resposta.Id).html(resposta.Quantidade);
+    }
+
+</script>

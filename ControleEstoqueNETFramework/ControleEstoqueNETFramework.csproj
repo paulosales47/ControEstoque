@@ -225,13 +225,16 @@
     <Compile Include="Configuration\ProdutoConfiguration.cs" />
     <Compile Include="Configuration\UsuarioConfiguration.cs" />
     <Compile Include="Controllers\CategoriaController.cs" />
+    <Compile Include="Controllers\ContadorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="DAO\CategoriaProdutoDAO.cs" />
     <Compile Include="DAO\EstoqueContext.cs" />
     <Compile Include="DAO\ProdutoDAO.cs" />
     <Compile Include="DAO\TemplateDAO.cs" />
     <Compile Include="DAO\UsuarioDAO.cs" />
+    <Compile Include="Filters\AutorizacaoFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -325,6 +328,8 @@
     <Content Include="Views\Produto\Form.cshtml" />
     <Content Include="Views\Produto\Adiciona.cshtml" />
     <Content Include="Views\Produto\Visualiza.cshtml" />
+    <Content Include="Views\Contador\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

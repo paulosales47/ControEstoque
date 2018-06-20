@@ -42,5 +42,17 @@ namespace ControleEstoqueNETFramework.DAO
                 ErroArgumento();
             }
         }
+
+        public Usuario Login(Usuario entidade)
+        {
+            using (var context = new EstoqueContext())
+            {
+                var usuario = context.Usuarios
+                    .Where(u => u.Nome.Equals(entidade.Nome) && u.Senha.Equals(entidade.Senha))
+                    .FirstOrDefault();
+
+                return usuario;
+            }
+        }
     }
 }

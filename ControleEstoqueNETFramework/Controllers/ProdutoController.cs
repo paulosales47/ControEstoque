@@ -1,4 +1,5 @@
 ﻿using ControleEstoqueNETFramework.DAO;
+using ControleEstoqueNETFramework.Filters;
 using ControleEstoqueNETFramework.Models;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.Web.Mvc;
 
 namespace ControleEstoqueNETFramework.Controllers
 {
+    [AutorizacaoFilter]
     public class ProdutoController : Controller
     {
         // GET: Produto
@@ -19,6 +21,7 @@ namespace ControleEstoqueNETFramework.Controllers
             return View(dao.Select());
         }
 
+        [Route("produtos/form")]
         public ActionResult Form()
         {
             ListaCategoria();
@@ -27,6 +30,7 @@ namespace ControleEstoqueNETFramework.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Adiciona(Produto produto)
         {
             if (ProdutoValido(produto))
@@ -52,6 +56,18 @@ namespace ControleEstoqueNETFramework.Controllers
             var dao = new ProdutoDAO();
             ViewBag.produto = dao.SelectId(id);
             return View();
+        }
+        
+        [HttpPost]
+        public ActionResult DecrementaProduto(int id)
+        {
+            var dao = new ProdutoDAO();
+            Produto entidade = dao.SelectId(id);
+            entidade.Quantidade--;
+            dao.Update(entidade);
+
+            entidade.Categoria.Produtos = null;
+            return Json(entidade);
         }
 
 
